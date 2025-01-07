@@ -1,0 +1,129 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/titleEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="任务标题"
+        android:textSize="20sp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/contentEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="任务内容"
+        android:textSize="20sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/attachment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="任务附件"
+        android:textSize="20sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Due Date -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="截止日期"
+            android:textSize="20sp"
+            android:textColor="@color/blue1"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:id="@+id/dueDateButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue1"
+            android:text="选择日期" />
+
+    </LinearLayout>
+
+    <!-- Importance -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="重要性"
+            android:textSize="20sp"
+            android:textColor="@color/blue1"
+            android:layout_marginRight="40dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerImportance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/importance_levels" />
+
+    </LinearLayout>
+
+
+    <!-- Category -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分类"
+            android:textSize="20sp"
+            android:textColor="@color/blue1"
+            android:layout_marginRight="60dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/category_options" />
+
+    </LinearLayout>
+
+
+    <!-- Tags -->
+    <EditText
+        android:id="@+id/etTags"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="标签 (用逗号分隔)"
+        android:textSize="20sp"/>
+
+    <!-- Is Completed -->
+    <CheckBox
+        android:id="@+id/checkIsCompleted"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:text="已完成"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/submitTaskButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="提交"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#0088ff" />
+
+</LinearLayout>

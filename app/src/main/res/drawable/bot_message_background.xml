@@ -1,0 +1,5 @@
+<!-- bot_message_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#E0E0E0"/> <!-- 机器人消息气泡颜色 -->
+    <corners android:radius="16dp"/> <!-- 圆角 -->
+</shape>

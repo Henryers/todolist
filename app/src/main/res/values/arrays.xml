@@ -1,0 +1,16 @@
+<resources>
+    <string-array name="importance_levels">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+
+    <!-- 新增的 category_options 数组定义 -->
+    <string-array name="category_options">
+        <item>Work</item>
+        <item>Personal</item>
+        <item>Shopping</item>
+        <item>Health</item>
+        <item>Finance</item>
+    </string-array>
+</resources>

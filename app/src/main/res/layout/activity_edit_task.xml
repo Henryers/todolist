@@ -1,0 +1,127 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- 任务标题 -->
+    <EditText
+        android:id="@+id/titleEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="任务标题"
+        android:textSize="20sp"
+        android:padding="8dp"
+        android:layout_marginTop="60dp"/>
+
+    <!-- 任务内容 -->
+    <EditText
+        android:id="@+id/contentEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="任务内容"
+        android:textSize="20sp"
+        android:padding="8dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- 附件 -->
+    <EditText
+        android:id="@+id/attachmentEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="附件 (可选)"
+        android:textSize="20sp"
+        android:padding="8dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- 截止日期 -->
+    <Button
+        android:id="@+id/dueDateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择截止日期"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:backgroundTint="@color/blue1"/>
+
+    <!-- 重要性 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:layout_marginTop="8dp">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="重要性"
+            android:textSize="20sp" />
+        <Spinner
+            android:id="@+id/importanceSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/importance_levels"
+            android:paddingStart="8dp" />
+    </LinearLayout>
+
+    <!-- 分类 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:layout_marginTop="8dp">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="类别"
+            android:textSize="20sp" />
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/category_options"
+            android:paddingStart="8dp"/>
+    </LinearLayout>
+
+    <!-- 标签 -->
+    <EditText
+        android:id="@+id/tagsEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="标签 (逗号分隔)"
+        android:textSize="20sp"
+        android:padding="8dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- 是否完成 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:layout_marginTop="8dp">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="是否完成"
+            android:textSize="20sp" />
+        <CheckBox
+            android:id="@+id/isCompletedCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!-- 保存按钮 -->
+    <Button
+        android:id="@+id/saveTaskButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="保存修改"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#ff6600"
+        android:padding="12dp" />
+
+</LinearLayout>

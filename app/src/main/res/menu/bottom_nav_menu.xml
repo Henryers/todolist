@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tab_time"
+        android:icon="@drawable/tab_time"
+        android:title="Home" />
+    <item
+        android:id="@+id/tab_calendar"
+        android:icon="@drawable/tab_calender"
+        android:title="Calendar" />
+    <item
+        android:id="@+id/tab_ai"
+        android:icon="@drawable/tab_ai"
+        android:title="AI" />
+</menu>
