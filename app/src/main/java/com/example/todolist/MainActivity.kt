@@ -20,6 +20,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var db: DatabaseHelper
 //    val homeFragment: HomeFragment
 
+    companion object {
+        private var isFirstLaunch = true
+    }
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,10 +31,14 @@ class MainActivity : AppCompatActivity() {
 
         db = DatabaseHelper(this)
 
-        // 查询未完成的任务并显示Dialog
-        val incompleteTasks = db.getIncompleteTasks()
-        if (incompleteTasks.isNotEmpty()) {
-            showIncompleteTasksDialog(incompleteTasks)
+        // 首次进入程序才有弹窗提示
+        if (isFirstLaunch) {
+            // 查询未完成的任务并显示Dialog
+            val incompleteTasks = db.getIncompleteTasks()
+            if (incompleteTasks.isNotEmpty()) {
+                showIncompleteTasksDialog(incompleteTasks)
+            }
+            isFirstLaunch = false
         }
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
