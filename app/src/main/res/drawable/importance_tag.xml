@@ -1,0 +1,4 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#EEEEEE"/> <!-- 默认颜色无所谓的，反正会动态修改 -->
+    <corners android:radius="8dp"/> <!-- 圆角 -->
+</shape>

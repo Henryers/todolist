@@ -14,7 +14,7 @@ import java.util.Date
 import java.util.Locale
 
 /**
- * 点击某一天，能够显示当天的一个任务列表
+ * 点击某一天后，能够显示当天的一个任务列表
  * 每个任务都有展示标题和内容
  */
 class TaskDayActivity : AppCompatActivity() {
@@ -45,12 +45,19 @@ class TaskDayActivity : AppCompatActivity() {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         dateTextView.text = dateFormat.format(date) // 设置显示的日期
 
+//        // 从数据库中获取任务列表并格式化为单字符串
+//        val tasks = dbHelper.getTitlesAndContentsByDate(dateInMillis).map {
+//            "标题: ${it.first}\n内容: ${it.second}"
+//        }
+//        // 使用简单的 ArrayAdapter 直接将数据加载到 ListView 中
+//        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, tasks)
+//        taskListView.adapter = adapter
+
+
         // 从数据库中获取任务列表并格式化为单字符串
-        val tasks = dbHelper.getTitlesAndContentsByDate(dateInMillis).map {
-            "标题:   ${it.first}\n内容: ${it.second}"
-        }
-        // 使用简单的 ArrayAdapter 直接将数据加载到 ListView 中
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, tasks)
+        val tasks = dbHelper.getTitlesAndContentsByDate(dateInMillis)
+        // 继承 ArrayAdapter，使用自定义列表项 day_item_task 而不是默认的 simple_list_item_1
+        val adapter = TaskDayAdapter(this, R.layout.day_item_task, tasks)
         taskListView.adapter = adapter
     }
 }

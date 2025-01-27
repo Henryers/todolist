@@ -6,6 +6,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
+import com.example.todolist.dataclass.SubTask
 import com.example.todolist.dataclass.Task
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -216,13 +217,13 @@ class DatabaseHelper(context: Context) :
         return titles
     }
 
-    fun getTitlesAndContentsByDate(dueDate: Long): List<Pair<String, String>> {
+    fun getTitlesAndContentsByDate(dueDate: Long): List<SubTask> {
         Log.e("error", dueDate.toString())
         val db = readableDatabase
-        val titlesAndContents = mutableListOf<Pair<String, String>>()
+        val subTasks = mutableListOf<SubTask>()
         val cursor = db.query(
             TABLE_NAME,
-            arrayOf(COLUMN_TITLE, COLUMN_CONTENT),  // 查询 title 和 content 列
+            arrayOf(COLUMN_TITLE, COLUMN_CONTENT, COLUMN_IMPORTANCE),  // 查询 title 和 content 列
             "$COLUMN_DUE_DATE = ?",
             arrayOf(dueDate.toString()),
             null,
@@ -232,11 +233,12 @@ class DatabaseHelper(context: Context) :
         while (cursor.moveToNext()) {
             val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
             val content = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT))
-            titlesAndContents.add(Pair(title, content))
+            val importance = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_IMPORTANCE))
+            subTasks.add(SubTask(title, content, importance))
         }
         cursor.close()
         db.close()
-        return titlesAndContents
+        return subTasks
     }
 
     // 查询之前未完成的任务
